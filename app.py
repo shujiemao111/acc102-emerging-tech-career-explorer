@@ -129,7 +129,7 @@ st.divider()
 # ==================================================
 # 📊 CHART 3: Relative Salary by Common Job Title
 # ==================================================
-st.subheader(f"Chart 4: Relative Salary by Common Job Title ({selected_industry})")
+st.subheader(f"Chart 3: Relative Salary by Common Job Title ({selected_industry})")
 st.markdown("This chart compares the average salary of common job titles relative to the lowest-paying job title.")
 
 if not filtered_df.empty:
@@ -144,17 +144,17 @@ if not filtered_df.empty:
     min_salary = job_salary["average_salary"].min()
     job_salary["relative_salary_pct"] = (job_salary["average_salary"] / min_salary - 1) * 100
 
-    fig4, ax4 = plt.subplots(figsize=(12, 6))
+    fig3, ax3 = plt.subplots(figsize=(12, 6))
     sns.barplot(data=job_salary, x="job_title", y="relative_salary_pct", 
                 hue="job_title", palette="Purples_r", legend=False)
-    ax4.set_title(f"Relative Salary by Job Title: {selected_industry}", fontsize=14)
-    ax4.set_xlabel("Job Title", fontsize=12)
-    ax4.set_ylabel("Relative Salary Increase (%)", fontsize=12)
+    ax3.set_title(f"Relative Salary by Job Title: {selected_industry}", fontsize=14)
+    ax3.set_xlabel("Job Title", fontsize=12)
+    ax3.set_ylabel("Relative Salary Increase (%)", fontsize=12)
     
     plt.xticks(rotation=45, ha="right")
-    ax4.grid(axis='y', linestyle='--', alpha=0.7)
+    ax3.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
-    st.pyplot(fig4)
+    st.pyplot(fig3)
 else:
     st.write("No job title data available for this selection.")
 
@@ -163,7 +163,7 @@ st.divider()
 # ==================================================
 # 📊 CHART 4: Relative Salary for Selected High-Demand Skills
 # ==================================================
-st.subheader(f"Chart 5: Relative Salary for Selected Skills ({selected_industry})")
+st.subheader(f"Chart 4: Relative Salary for Selected Skills ({selected_industry})")
 st.markdown("This chart shows the salary premium for top 8 high-demand skills relative to the lowest-paying skill.")
 
 if not filtered_skills_df.empty:
@@ -182,17 +182,17 @@ if not filtered_skills_df.empty:
         min_salary_skill = skill_salary["average_salary"].min()
         skill_salary["relative_salary_pct"] = (skill_salary["average_salary"] / min_salary_skill - 1) * 100
 
-        fig5, ax5 = plt.subplots(figsize=(10, 6))
+        fig4, ax4 = plt.subplots(figsize=(10, 6))
         sns.barplot(data=skill_salary, x="skill", y="relative_salary_pct", 
                     hue="skill", palette="Reds_r", legend=False, dodge=False)
-        ax5.set_title(f"Relative Salary by Skill: {selected_industry}", fontsize=14)
-        ax5.set_xlabel("Skill", fontsize=12)
-        ax5.set_ylabel("Relative Salary Increase (%)", fontsize=12)
+        ax4.set_title(f"Relative Salary by Skill: {selected_industry}", fontsize=14)
+        ax4.set_xlabel("Skill", fontsize=12)
+        ax4.set_ylabel("Relative Salary Increase (%)", fontsize=12)
        
         plt.xticks(rotation=30, ha="right")
-        ax5.grid(axis='y', linestyle='--', alpha=0.7)
+        ax4.grid(axis='y', linestyle='--', alpha=0.7)
         plt.tight_layout()
-        st.pyplot(fig5)
+        st.pyplot(fig4)
     else:
         st.write("No skill salary data available for this selection.")
 else:
