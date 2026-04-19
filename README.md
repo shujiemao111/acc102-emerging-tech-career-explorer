@@ -26,10 +26,13 @@ This project explores which skills are most in demand in emerging technology ind
 - The results can help students identify useful skills for future career preparation.
 
 ## 5. How to run
-1. Download this repository.
-2. Make sure `app.py`, `requirements.txt`, and `future_jobs_dataset.csv` are in the same folder.
-3. Install the required libraries by running: `pip install -r requirements.txt`
-4. Run the app with the command: `streamlit run app.py`
+1.Download this repository and extract it to a folder.
+2.Make sure app.py, requirements.txt, and future_jobs_dataset.csv are in the same folder.
+3.Open Anaconda Prompt and navigate to your project folder.
+4.Install required libraries:
+  pip install -r requirements.txt
+5.Run the Streamlit application:
+  streamlit run app.py
 
 ## 6. Product link / Demo
 
