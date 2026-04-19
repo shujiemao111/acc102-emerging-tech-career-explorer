@@ -26,11 +26,11 @@ This interactive tool analyzes skill demand and salary patterns across AI, Block
 def load_data():
     df = pd.read_csv("future_jobs_dataset.csv")
     
-    # 数据清洗
+    # Data cleaning
     df["salary_usd"] = pd.to_numeric(df["salary_usd"], errors="coerce")
     df = df.dropna(subset=["salary_usd"])
     
-    # 技能拆分
+    # Skill decomposition
     def clean_skills(text):
         if pd.isna(text): 
             return []
@@ -41,7 +41,7 @@ def load_data():
 
 df = load_data()
 
-# 生成全量 skills_df（用于Chart 2 全行业热力图）
+# Generate the full skills_df (for Chart 2, the industry-wide heatmap)
 skills_df = df.explode("skill_list", ignore_index=True)
 skills_df.rename(columns={"skill_list": "skill"}, inplace=True)
 
@@ -52,7 +52,7 @@ st.sidebar.header("Filters")
 industry_list = ["All"] + sorted(df["industry"].unique().tolist())
 selected_industry = st.sidebar.selectbox("Select Industry", industry_list)
 
-# 筛选数据
+# Filter data
 if selected_industry != "All":
     filtered_df = df[df["industry"] == selected_industry]
     filtered_skills_df = skills_df[skills_df["industry"] == selected_industry]
