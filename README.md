@@ -34,12 +34,7 @@ This project explores which skills are most in demand in emerging technology ind
 5. Run the Streamlit application:
    `streamlit run app.py`
 
-## 6. Product link / Demo
-
--   **Product link:** [Paste your Streamlit app link here]
--   **Demo video:** [Paste your demo video link here]
-
-## 7. Limitations & next steps
+## 6. Limitations & next steps
 
 ### Limitations
 
